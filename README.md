@@ -22,7 +22,8 @@ Need of Data Preprocessing :
 For achieving better results from the applied model in Machine Learning projects the format of the data has to be in a proper manner. Some specified Machine Learning model needs information in a specified format, for example, Random Forest algorithm does not support null values, therefore to execute random forest algorithm null values have to be managed from the original raw data set.
 Another aspect is that the data set should be formatted in such a way that more than one Machine Learning and Deep Learning algorithm are executed in one data set, and best out of them is chosen.
 
-
+#DEVELOPED BY:JAYALAKSHMI M
+#REGISTER NUMBER:212221040066
 ## ALGORITHM:
 Importing the libraries
 Importing the dataset
@@ -33,9 +34,41 @@ Splitting the data into test and train
 
 ## PROGRAM:
 /Write your code here/
+import pandas as pd 
+df=pd.read_csv("/content/Churn_Modelling (1).csv") 
+df.head()
+
+df.duplicated() 
+df.describe() 
+df.isnull().sum()
+x=df.iloc[:, :-1].values 
+print(x)
+
+y=df.iloc[:, -1].values 
+print(y)
+
+from sklearn.preprocessing import MinMaxScaler 
+scaler = MinMaxScaler()
+df1 = pd.DataFrame(scaler.fit_transform(df)) 
+print(df1)
+
+from sklearn.model_selection import train_test_split 
+xtrain,ytrain,xtest,ytest=train_test_split(x,y,test_size=0.2,random_state=2) print(xtrain)
+print(len(xtrain))
+print(xtest) 
+print(len(xtest))
+ 
+from sklearn.preprocessing import StandardScaler sc = StandardScaler()
+df1 = sc.fit_transform(df)
+print(df1)
+
 
 ## OUTPUT:
-/ Show the result/
-
+![EX.NO.1---DATA-PREPROCESSING](ex2(1).png)
+![EX.NO.1---DATA-PREPROCESSING](ex2(2).png)
+![EX.NO.1---DATA-PREPROCESSING](ex2(3).png)
+![EX.NO.1---DATA-PREPROCESSING](ex2(4).png)
+![EX.NO.1---DATA-PREPROCESSING](ex2(5).png)
+![EX.NO.1---DATA-PREPROCESSING](ex2(6).png)
 ## RESULT
-/Type your result here/
+Thus the above program for standardizing the given data was implemented successfully.
